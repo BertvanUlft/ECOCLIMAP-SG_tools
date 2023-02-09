@@ -1,9 +1,6 @@
 # ECOCLIMAP-SG tools
 A collection of scripts and programs to modify and work with ECOCLIMAP-SG binary files
 
-To use the tools the ECOCLIMAP-SG files must be uncompressed. A tool to uncompress the files can be downloaded from the [ECOCLIMAP-SG wiki](https://opensource.umr-cnrm.fr/projects/ecoclimap-sg/wiki).
-
-The tools and scripts are written for the ECMWF HPC, so will need some work if you want to use them elsewehere.
 
 ## Building
 
@@ -31,7 +28,20 @@ ncks -d lon,65000,68000 -d lat,12500,15500 ecosg_COVER.nc ecosg_COVER_subdomain.
 ```
 
 
+## Uncompress
+
+To use the tools the ECOCLIMAP-SG files must be uncompressed. A tool to uncompress the files can be downloaded from the [ECOCLIMAP-SG wiki](https://opensource.umr-cnrm.fr/projects/ecoclimap-sg/wiki). Simply run `make` to compile. Then run:
+``` bash
+uncompress_file.exe LAI_1215_c.dir unzip_LAI_1215_c.dir [cover_LAI_1215_c.dir] [rows=50400 cols=129600]
+```
+Number of rows by default assumes full globe at 300m. Cover is hidden in the compressed files and can be written to a separate file. After uncompressing the cover is not contained in the file anymore, and data are 8-bit instead 16-bit integers.
+For further processing the header files need to be adapted (`compress:0`; `recordtype: integer 8 bits`), e.g.:
+``` bash
+sed -e 's/^compress.*$/compress: 0/' -e 's/^recordtype.*$/recordtype: integer 8 bits/' <header_in> > <header_out>
+```
+
 ## Caveats
 * all paths are hard-coded
 * all dimensions are hard-coded, could be read from *.hdr files
 * extend (N-S) and resolution is hard-coded and/or implicit in some calculations, could be read from *.hdr files
+* The tools and scripts are written for the ECMWF HPC, so will need some work if you want to use them elsewehere
