@@ -1,0 +1,15 @@
+SHELL:=/bin/bash
+
+BIN       = $(HOME)/bin
+
+DEBUG     = -g -fbacktrace
+OPT       = -O2 # -O0
+FPE       = -ffpe-trap=invalid,zero,overflow
+RTE       =  # -fbounds-check
+REAL8     = -fdefault-real-8
+SHARED    = -shared -fPIC
+FFLAGS    = $(DEBUG) $(OPT) $(FPE) $(RTE) -cpp -c -ffree-line-length-none -ffixed-line-length-none -Wall
+LDFLAGS   = $(DEBUG) $(OPT) $(FPE) $(RTE)
+CFLAGS    = -c
+
+FC        = gfortran
