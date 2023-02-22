@@ -1,6 +1,6 @@
 # -------------------------------------------
 #
-# Makefile for programs to convert binary files to netcdf
+# Makefile for program to uncompress ECOCLIMAP-SG binary files
 #
 # -------------------------------------------
 
@@ -10,7 +10,7 @@ include config.ECMWF.atos
 
 # --- names -----------------------------
 
-PROG = ecosg_bin2nc
+PROG = uncompress_file_multitype
 
 # --- flags -----------------------------
 
