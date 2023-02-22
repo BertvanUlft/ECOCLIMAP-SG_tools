@@ -56,6 +56,10 @@ uncompress_file_multitype_subdomain <file_in> <file_out> [N=<North> S=<South> W=
 ```
 
 
+### Batch scripts
+In the batch_scripts directory there are a few scripts to submit the uncompress program for all LAI, ALBNIR, ALBVIS, HT files.
+
+
 ## Convert to NetCDF
 
 The `ecosg_bin2nc` program can be used to convert a binary file to a basic NetCDF4 file.
@@ -64,10 +68,6 @@ Note that the files are very large, and to view them you first might want to cut
 ncks -d lon,65000,68000 -d lat,12500,15500 ecosg_COVER.nc ecosg_COVER_subdomain.nc
 ```
 
-
-## Uncompress
-
-To use the tools the ECOCLIMAP-SG files must be uncompressed. 
 
 ## Caveats and assumptions
 * longitude runs from -180 to 180
