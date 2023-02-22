@@ -1,5 +1,6 @@
 # ECOCLIMAP-SG tools
-A collection of scripts and programs to modify and work with ECOCLIMAP-SG binary files
+A collection of scripts and programs to modify and work with ECOCLIMAP-SG binary files  
+See the [ECOCLIMAP-SG wiki](https://opensource.umr-cnrm.fr/projects/ecoclimap-sg/wiki) for general ECOCLIMAP-SG info.
 
 
 ## Building
